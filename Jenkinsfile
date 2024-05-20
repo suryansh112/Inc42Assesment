@@ -8,7 +8,7 @@ pipeline {
     environment {
         GO112MODULE = 'on'
         CGO_ENABLED = 0 
-        GOPATH = "${JENKINS_HOME}/${JOB_NAME}/builds/${BUILD_ID}/Go"
+        GOPATH = "${JENKINS_HOME}/${JOB_NAME}/Go"
     }
     stages{
         stage("build") {
