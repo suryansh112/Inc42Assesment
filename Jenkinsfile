@@ -8,14 +8,14 @@ pipeline {
     environment {
         GO112MODULE = 'on'
         CGO_ENABLED = 0 
-        GOPATH = "${JENKINS_HOME}/${JOB_NAME}/builds/${BUILD_ID}"
+        GOPATH = "${JENKINS_HOME}/${JOB_NAME}/builds/${BUILD_ID}/Go"
     }
     stages{
         stage("build") {
             steps {
                 echo 'BUILD EXECUTION STARTED'
                 sh 'go version'
-                sh 'go build'
+                sh 'go build ${GOPATH}/main.go'
             }
         }
 
