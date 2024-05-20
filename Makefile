@@ -6,3 +6,4 @@ unit-tests:
 
 test-coverage:
 	go test -coverprofile=cover.out -covermode=atomic
+	cat cover.out >> coverage.txt
