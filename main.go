@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/brpaz/github-actions-demo-go/hello"
+	"github.com/suryansh112/Inc42Assesment/hello"
 )
 
 func main() {
