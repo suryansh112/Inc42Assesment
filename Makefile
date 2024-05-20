@@ -5,4 +5,4 @@ unit-tests:
 	go test ./hello/...
 
 test-coverage:
-        go test -coverprofile=cover.out -covermode=atomic
+	go test -coverprofile=cover.out -covermode=atomic
