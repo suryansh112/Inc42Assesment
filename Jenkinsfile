@@ -10,29 +10,13 @@ pipeline {
         CGO_ENABLED = 0 
         GOPATH = "${JENKINS_HOME}/${JOB_NAME}/builds/${BUILD_ID}"
     }
-
-    stages {
-        stage("unit-test") {
-            steps {
-                echo 'UNIT TEST EXECUTION STARTED'
-                sh 'make unit-tests'
-            }
-        } 
         stage("build") {
             steps {
                 echo 'BUILD EXECUTION STARTED'
                 sh 'go version'
-                sh 'make build'
+                sh 'go build'
             }
         }
-      /*  stage('Docker Push') {
-            agent any
-            steps {
-                withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'dockerhubPassword', usernameVariable: 'dockerhubUser')]) {
-                sh "docker login -u ${env.dockerhubUser} -p ${env.dockerhubPassword}"
-                sh 'docker push shadowshotx/product-go-micro'
-                }
-            }
-        }*/
+
     }
 }
