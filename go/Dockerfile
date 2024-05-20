@@ -5,4 +5,4 @@ COPY . /go/src/app
 RUN go mod init
 RUN go build -o main .
 
-CMD ["./main"]
+CMD ["/go/src/app/main"]
