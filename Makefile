@@ -3,3 +3,6 @@ run:
 
 unit-tests:
 	go test ./hello/...
+
+test-coverage:
+        go test -coverprofile=cover.out -covermode=atomic
