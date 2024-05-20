@@ -10,6 +10,7 @@ pipeline {
         CGO_ENABLED = 0 
         GOPATH = "${JENKINS_HOME}/${JOB_NAME}/builds/${BUILD_ID}"
     }
+    stage{
         stage("build") {
             steps {
                 echo 'BUILD EXECUTION STARTED'
@@ -19,3 +20,4 @@ pipeline {
         }
 
     }
+}
