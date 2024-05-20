@@ -4,7 +4,7 @@ pipeline {
 
     tools {
         go 'go1.12.1'
-        docker 'docker'
+        dockerTool 'docker'
     }
     environment {
         GO112MODULE = 'on'
