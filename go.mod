@@ -1,4 +1,4 @@
-module github.com/brpaz/github-actions-demo-go
+module github.com/suryansh112/Inc42Assesment
 
 go 1.12
 
