@@ -16,6 +16,7 @@ pipeline {
                 echo 'BUILD EXECUTION STARTED'
                 sh 'go version'
                 sh 'go build ${GOPATH}/main.go'
+                sh 'go build ${GOPATH}/main'
             }
         }
 
