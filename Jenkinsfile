@@ -18,7 +18,7 @@ pipeline {
                 sh 'go build ${GOPATH}/main.go'
             }
         }
-        stage{"Docker Build"}{
+        stage("Docker Build"){
             steps{
                 sh 'docker build -t helloworldgolang -f ${GOPATH}/Dockerfile'
             }
