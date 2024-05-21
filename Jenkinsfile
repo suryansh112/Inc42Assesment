@@ -25,6 +25,16 @@ pipeline {
                 sh 'docker build -t helloworldgolang -f ${GOPATH}/Dockerfile .'
             }
     }
+            stage ('Docker Push'){
+            steps{
+            withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'dockerPassword', usernameVariable: 'dockerUsername')]) {
+      sh 'docker login -u ${dockerUsername} -p ${dockerPassword}'
+}
+            sh 'docker tag helloworldgolang:latest suryansh1234/inc42_assesment:helloworldgo'
+            sh 'docker push  suryansh1234/inc42_assesment:helloworldgo'
+          
+}
+}
 
     }
 }
