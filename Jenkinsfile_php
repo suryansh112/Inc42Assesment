@@ -3,7 +3,6 @@ pipeline {
     agent any
 
     tools {
-        php 'php'
         dockerTool 'docker'
     }
     environment {
@@ -13,6 +12,7 @@ pipeline {
         stage("build") {
             steps {
                 echo 'BUILD EXECUTION STARTED'
+                sh 'php --version'
                 sh 'php ${PHPPATH}/index.go'
                 sh 'cp ${WORKSPACE}/index ${WORKSPACE}/php'
             }
