@@ -1,6 +1,6 @@
 services:
   go:
-    image: helloworldsuryanshgo
+    image: helloworldgo
   typescript:
     image: helloworldnode
   php:
