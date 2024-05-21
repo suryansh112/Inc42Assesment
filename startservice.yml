@@ -1,7 +1,7 @@
 services:
   go:
-    image: helloworldgo
+    image: suryansh1234/inc42_assesment/helloworldgo
   typescript:
-    image: helloworldnode
+    image: suryansh1234/inc42_assesment/helloworldnode
   php:
-    image: helloworldphp
+    image: suryansh1234/inc42_assesment/helloworldphp
