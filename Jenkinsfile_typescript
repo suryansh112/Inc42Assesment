@@ -25,6 +25,7 @@ pipeline {
     }
     stage ('Docker Push'){
             steps{
+            sh 'docker tag helloworldnode:latest suryansh1234/inc42_assesment'
             sh 'docker push suryansh1234/inc42_assesment:helloworldnode:latest'
 }
 }
