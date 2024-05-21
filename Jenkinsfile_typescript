@@ -13,6 +13,7 @@ pipeline {
         stage("build") {
             steps {
                 echo 'BUILD EXECUTION STARTED'
+                sh 'npm install typescript -g'
                 sh 'tsc ${NODEPATH}/app.ts'
                 sh 'cp ${WORKSPACE}/app.js ${NODEPATH}'
             }
