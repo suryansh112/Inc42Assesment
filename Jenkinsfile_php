@@ -6,7 +6,6 @@ pipeline {
         dockerTool 'docker'
     }
     environment {
-        php = "env.PHP_HOME"
         PHPPATH = "${WORKSPACE}/php"
     }
     stages{
@@ -14,7 +13,7 @@ pipeline {
             steps {
                 echo 'BUILD EXECUTION STARTED'
                 sh 'env | sort'
-                sh 'php --version'
+                sh '${PHP_HOME} --version'
                 sh 'php ${PHPPATH}/index.go'
                 sh 'cp ${WORKSPACE}/index ${WORKSPACE}/php'
             }
