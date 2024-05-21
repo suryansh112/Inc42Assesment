@@ -1,0 +1,17 @@
+pipeline {
+
+    agent any
+
+    tools {
+        dockerTool 'docker'
+    }
+    stages{
+        stage("Pulling Image from Repo") {
+            steps {
+                sh 'docker pull suryansh1234/inc42_assesment:helloworldnode'
+                sh 'docker pull suryansh1234/inc42_assesment:helloworldgolang'
+                sh 'docker pull suryansh1234/inc42_assesment:helloworldphp'
+            }
+        }
+    }
+}
