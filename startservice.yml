@@ -1,0 +1,7 @@
+services:
+  go:
+    image: helloworldsuryanshgolang
+  typescript:
+    image: helloworldnode
+  php:
+    image: helloworldphp

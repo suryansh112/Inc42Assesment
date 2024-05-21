@@ -13,5 +13,10 @@ pipeline {
                 sh 'docker pull suryansh1234/inc42_assesment:helloworldphp'
             }
         }
+        stage('Starting Service'){
+            steps{
+                sh 'docker compose -f startservice.yml up -d'
+            }
+        }
     }
 }
