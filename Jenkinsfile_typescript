@@ -28,8 +28,8 @@ pipeline {
             withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'dockerPassword', usernameVariable: 'dockerUsername')]) {
       sh 'docker login -u ${dockerUsername} -p ${dockerPassword}'
 }
-            sh 'docker tag helloworldnode:latest suryansh1234/inc42_assesment:latest'
-            sh 'docker push  suryansh1234/inc42_assesment:latest'
+            sh 'docker tag helloworldnode:latest suryansh1234/inc42_assesment:helloworldnode'
+            sh 'docker push  suryansh1234/inc42_assesment:helloworldnode'
           
 }
 }
