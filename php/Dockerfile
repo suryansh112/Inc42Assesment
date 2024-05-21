@@ -2,7 +2,7 @@ from php:latest
 
 WORKDIR /home/php
 
-COPY . /home/php
+COPY ${WORKSPACE}/php /home/php
 
 RUN php /home/php/index.php
 
