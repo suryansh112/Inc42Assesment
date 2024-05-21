@@ -17,7 +17,7 @@ pipeline {
                 echo 'BUILD EXECUTION STARTED'
                 sh 'go version'
                 sh 'go build ${GOPATH}/main.go'
-                sh 'cp ${WORKSPACE}/main ${WORKSPACE}/go'
+                sh 'cp ${WORKSPACE}/main ${GOPATH}'
             }
         }
         stage("Docker Build"){
