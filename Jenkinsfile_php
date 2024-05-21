@@ -6,7 +6,7 @@ pipeline {
         dockerTool 'docker'
     }
     environment {
-        php = "PHP_HOME"
+        php = "env.PHP_HOME"
         PHPPATH = "${WORKSPACE}/php"
     }
     stages{
