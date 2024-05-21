@@ -14,8 +14,7 @@ pipeline {
                 echo 'BUILD EXECUTION STARTED'
                 sh 'env | sort'
                 sh 'php --version'
-                sh 'php ${PHPPATH}/index.go'
-                sh 'cp ${WORKSPACE}/index ${WORKSPACE}/php'
+                sh 'php ${PHPPATH}/index.php'
             }
         }
         stage("Docker Build"){
