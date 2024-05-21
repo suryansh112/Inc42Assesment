@@ -1,0 +1,27 @@
+pipeline {
+
+    agent any
+
+    tools {
+        php 'php'
+        dockerTool 'docker'
+    }
+    environment {
+        PHPPATH = "${WORKSPACE}/php"
+    }
+    stages{
+        stage("build") {
+            steps {
+                echo 'BUILD EXECUTION STARTED'
+                sh 'php ${PHPPATH}/index.go'
+                sh 'cp ${WORKSPACE}/index ${WORKSPACE}/php'
+            }
+        }
+        stage("Docker Build"){
+            steps{
+                sh 'docker build -t helloworldphp -f ${PHPPATH}/Dockerfile .'
+            }
+    }
+
+    }
+}

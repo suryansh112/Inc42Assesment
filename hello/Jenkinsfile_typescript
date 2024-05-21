@@ -1,0 +1,27 @@
+pipeline {
+
+    agent any
+
+    tools {
+        node 'node'
+        dockerTool 'docker'
+    }
+    environment {
+        NODEPATH = "${WORKSPACE}/typescript"
+    }
+    stages{
+        stage("build") {
+            steps {
+                echo 'BUILD EXECUTION STARTED'
+                sh 'node ${PHPPATH}/app.ts'
+                sh 'cp ${WORKSPACE}/app.js ${WORKSPACE}/typescript'
+            }
+        }
+        stage("Docker Build"){
+            steps{
+                sh 'docker build -t helloworldnode -f ${NODEPATH}/Dockerfile .'
+            }
+    }
+
+    }
+}
