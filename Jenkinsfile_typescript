@@ -13,8 +13,8 @@ pipeline {
         stage("build") {
             steps {
                 echo 'BUILD EXECUTION STARTED'
-                sh 'node ${PHPPATH}/app.ts'
-                sh 'cp ${WORKSPACE}/app.js ${WORKSPACE}/typescript'
+                sh 'node ${NODEPATH}/app.ts'
+                sh 'cp ${WORKSPACE}/app.js ${NODEPATH}'
             }
         }
         stage("Docker Build"){
