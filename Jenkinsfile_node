@@ -25,13 +25,6 @@ pipeline {
                 sh 'docker build -t helloworldgolang -f ${GOPATH}/Dockerfile .'
             }
     }
-        stage('Sonar Scan'){
-           steps{
-           withSonarQubeEnv(installationName: 'sonarqube') {
-    // some block
-}
-}
-}
             stage ('Docker Push'){
             steps{
             withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'dockerPassword', usernameVariable: 'dockerUsername')]) {
