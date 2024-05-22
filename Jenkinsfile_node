@@ -27,7 +27,7 @@ pipeline {
     }
         stage('Sonar Scan'){
            steps{
-           withSonarQubeEnv(credentialsId: 'sonar-token') {
+           withSonarQubeEnv(installationName: 'sonarqube') {
     // some block
 }
 }
