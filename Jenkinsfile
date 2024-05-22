@@ -35,6 +35,11 @@ pipeline {
           }
         }
       }
+        stage("Quality gate") {
+            steps {
+                waitForQualityGate abortPipeline: true
+            }
+        }
         stage("Docker Build"){
             steps{
                 sh 'docker build -t helloworldgolang -f ${GOPATH}/Dockerfile .'
