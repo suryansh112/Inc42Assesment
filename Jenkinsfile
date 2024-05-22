@@ -22,7 +22,11 @@ pipeline {
         }
       stage ('SonarScan'){
         steps{
+            environment{
+            scannerHome = tool 'SonarScanner 4.0'
+            }
           withSonarQubeEnv(installationName:'sonarqube'){
+              sh '${scannerHome}/bin/sonar-scanner -Dsonar.host.url=192.168.1.5:8080  -Dsonar.login=sqp_705c611fd1b5daa3bf38326954b3ff7b940d5757 -Dsonar.Sources=${WORKSPACE}/go/'
           }
         }
       }
