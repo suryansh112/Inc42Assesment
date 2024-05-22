@@ -29,7 +29,7 @@ pipeline {
             
           withSonarQubeEnv('sonarqube'){
               sh ' java -version'
-              sh 'export JAVA_HOME=/usr/lib/jvm/jdk-21.0.1'
+              sh 'export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64'
               sh 'echo $JAVA_HOME'
               sh '${scannerHome}/bin/sonar-scanner -X'
           }
