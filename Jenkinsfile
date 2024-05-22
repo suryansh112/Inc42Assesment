@@ -23,11 +23,12 @@ pipeline {
       stage ('SonarScan'){
           environment{
             scannerHome = tool 'SonarScanner5.0'
+              sonarToken = credential('sonar-token')
             }
         steps{
             
           withSonarQubeEnv('sonarqube'){
-              sh '${scannerHome}/bin/sonar-scanner -Dsonar.host.url=192.168.1.5:8080  -Dsonar.login=sqp_705c611fd1b5daa3bf38326954b3ff7b940d5757 -Dsonar.Sources=${WORKSPACE}/go/'
+              sh '${scannerHome}/bin/sonar-scanner -Dsonar.host.url=192.168.1.5:8080  -Dsonar.login=${sonarToken} -Dsonar.projectKey=inc42-assesment -Dsonar.projectName=inc42-assesment -Dsonar.sources=${WORKSPACE}/go/'
           }
         }
       }
