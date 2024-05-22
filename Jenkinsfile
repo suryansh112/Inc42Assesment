@@ -29,6 +29,7 @@ pipeline {
             
           withSonarQubeEnv('sonarqube'){
               sh ' java -version'
+              sh 'export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64/bin/java'
               sh '${scannerHome}/bin/sonar-scanner -Dsonar.host.url=192.168.1.5:8080  -Dsonar.login=${sonarToken} -Dsonar.projectKey=inc42-assesment -Dsonar.projectName=inc42-assesment -Dsonar.sources=${WORKSPACE}/go/'
           }
         }
