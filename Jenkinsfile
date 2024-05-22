@@ -22,7 +22,7 @@ pipeline {
         }
       stage ('SonarScan'){
           environment{
-            scannerHome = tool 'SonarScanner 4.0'
+            scannerHome = tool 'SonarScanner5.0'
             }
         steps{
             
