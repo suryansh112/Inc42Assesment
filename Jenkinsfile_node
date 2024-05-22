@@ -30,6 +30,8 @@ pipeline {
            withSonarQubeEnv(credentialsId: 'sonar-token') {
     // some block
 }
+}
+}
             stage ('Docker Push'){
             steps{
             withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'dockerPassword', usernameVariable: 'dockerUsername')]) {
