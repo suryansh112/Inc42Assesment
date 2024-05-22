@@ -24,7 +24,7 @@ pipeline {
           environment{
             scannerHome = tool 'SonarScanner5.0'
               sonarToken = credentials('sonar-token')
-              JAVA_HOME = '/usr/lib/jvm/java-11-openjdk-amd64'
+              JAVA_HOME = '/usr/lib/jvm/jdk-22.0.1'
             }
         steps{
             
