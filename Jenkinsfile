@@ -23,7 +23,7 @@ pipeline {
       stage ('SonarScan'){
           environment{
             scannerHome = tool 'SonarScanner5.0'
-              sonarToken = credential('sonar-token')
+              sonarToken = credentials('sonar-token')
             }
         steps{
             
