@@ -20,6 +20,26 @@ pipeline {
                 sh 'cp ${WORKSPACE}/main ${GOPATH}'
             }
         }
+      stage ('SonarScan'){
+          environment{
+            scannerHome = tool 'SonarScanner5.0'
+              sonarToken = credentials('sonar-token')
+              JAVA_HOME = '/usr/lib/jvm/jdk-22.0.1'
+            }
+        steps{
+            
+          withSonarQubeEnv('sonarqube'){
+              sh ' java -version'
+              sh 'echo $JAVA_HOME'
+              sh '${scannerHome}/bin/sonar-scanner -Dsonar.host.url=http://192.168.1.5:8080  -Dsonar.login=${sonarToken} -Dsonar.projectKey=inc42-assesment -Dsonar.projectName=inc42-assesment -Dsonar.sources=${WORKSPACE}/go/ -X'
+          }
+        }
+      }
+        stage("Quality gate") {
+            steps {
+                waitForQualityGate abortPipeline: true
+            }
+        }
         stage("Docker Build"){
             steps{
                 sh 'docker build -t helloworldgolang -f ${GOPATH}/Dockerfile .'
